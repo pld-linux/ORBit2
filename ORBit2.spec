@@ -3,7 +3,7 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.7.5
-Release:	0.9
+Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
@@ -18,11 +18,12 @@ BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.0
 BuildRequires:	libtool
-BuildRequires:	linc-devel >= 1.1.1
 BuildRequires:	popt-devel
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Provides:		linc = 1.1.1
 Obsoletes:	libORBit2_0
+Obsoletes:	linc
 Conflicts:	libbonobo < 2.3.2
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 ORBit is a high-performance CORBA (Common Object Request Broker
@@ -52,9 +53,10 @@ Requires:	%{name} = %{epoch}:%{version}
 Requires:	glib2-devel >= 2.0.0
 Requires:	indent
 Requires:	libIDL-devel
-Requires:	linc-devel
 Requires:	popt-devel
+Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
+Obsoletes:	linc-devel
 
 %description
 devel ORBit is a high-performance CORBA ORB with support for the C
@@ -81,6 +83,8 @@ Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}
+Provides:	linc-static = 1.1.1
+Obsoletes:	linc-static
 
 %description static
 ORBit is a high-performance CORBA ORB with support for the C language.
@@ -132,8 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/ior-decode-2
-#Waiting for new linc package
-#%attr(755,root,root) %{_bindir}/linc-cleanup-sockets
+%attr(755,root,root) %{_bindir}/linc-cleanup-sockets
 %attr(755,root,root) %{_bindir}/orbit-idl-2
 %attr(755,root,root) %{_bindir}/typelib-dump
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
