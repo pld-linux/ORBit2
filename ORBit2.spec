@@ -2,13 +2,13 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.9.3
-Release:	2
+Version:	2.9.4
+Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	156c895861f2269341cd8880088e27fd
+# Source0-md5:	15fb732123aec4b6168a93c35816beed
 Patch0:		%{name}-pthread.patch
 Patch1:		%{name}-am18.patch
 URL:		http://www.labs.redhat.com/orbit/
