@@ -16,7 +16,8 @@ Patch0:		%{name}-disable_test.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel
+BuildRequires:	glib2-devel >= 1.3.10
+BuildRequires:	linc-devel >= 0.1.12
 BuildRequires:	libIDL-devel
 BuildRequires:	flex
 BuildRequires:	indent
@@ -109,10 +110,11 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %patch0 -p1
 
 %build
+rm -f missing
+install /usr/share/automake/missing .
 libtoolize --copy --force
 aclocal
 autoconf
-
 %configure
 %{__make}
 
