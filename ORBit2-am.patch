@@ -1,0 +1,85 @@
+diff -Nur ORBit2-2.3.102/include/orbit/dynamic/Makefile.am ORBit2-2.3.102.new/include/orbit/dynamic/Makefile.am
+--- ORBit2-2.3.102/include/orbit/dynamic/Makefile.am	Thu Nov  1 02:50:45 2001
++++ ORBit2-2.3.102.new/include/orbit/dynamic/Makefile.am	Tue Jan 15 02:02:29 2002
+@@ -15,7 +15,6 @@
+ IDL_DIR=$(top_srcdir)/src/orb/dynamic/
+ IDL_FILES=dynamic-defs.idl
+ 
+-include $(top_srcdir)/Makefile.shared
+ 
+ CLEANFILES=$(BUILT_SOURCES)
+ 
+diff -Nur ORBit2-2.3.102/include/orbit/orb-core/Makefile.am ORBit2-2.3.102.new/include/orbit/orb-core/Makefile.am
+--- ORBit2-2.3.102/include/orbit/orb-core/Makefile.am	Thu Nov  1 02:50:45 2001
++++ ORBit2-2.3.102.new/include/orbit/orb-core/Makefile.am	Tue Jan 15 02:02:12 2002
+@@ -41,7 +41,6 @@
+ IDL_FILES=corba-defs.idl iop-defs.idl orbit-interface.idl
+ IDL_DIR=$(top_srcdir)/src/orb/orb-core/
+ 
+-include $(top_srcdir)/Makefile.shared
+ 
+ orbit-interface.h: $(top_srcdir)/src/orb/orb-core/orbit-interface.idl $(IDL_COMPILER)
+ 	-(rm -f orbit-interface.h || true ) > /dev/null
+diff -Nur ORBit2-2.3.102/include/orbit/poa/Makefile.am ORBit2-2.3.102.new/include/orbit/poa/Makefile.am
+--- ORBit2-2.3.102/include/orbit/poa/Makefile.am	Thu Nov  1 02:50:46 2001
++++ ORBit2-2.3.102.new/include/orbit/poa/Makefile.am	Tue Jan 15 02:02:40 2002
+@@ -21,6 +21,5 @@
+         --showcpperrors
+ IDL_FILES=poa-defs.idl
+ IDL_DIR=$(top_srcdir)/src/orb/poa/
+-include $(top_srcdir)/Makefile.shared
+ 
+ CLEANFILES=$(BUILT_SOURCES)
+diff -Nur ORBit2-2.3.102/src/orb/dynamic/Makefile.am ORBit2-2.3.102.new/src/orb/dynamic/Makefile.am
+--- ORBit2-2.3.102/src/orb/dynamic/Makefile.am	Sun Nov 18 22:28:29 2001
++++ ORBit2-2.3.102.new/src/orb/dynamic/Makefile.am	Tue Jan 15 02:00:51 2002
+@@ -14,8 +14,6 @@
+ 	$(WARN_CFLAGS)					\
+ 	$(ORBIT_CFLAGS)
+ 
+-DYNAMIC_IDLOUT=dynamic-defs-common.c
+-
+ IDL_FLAGS= -I$(top_srcdir)/src/idl/CORBA_PIDL			\
+ 	--define=Object=OObject --define=TypeCode=TTypeCode	\
+ 	-I$(top_srcdir)/src/idl/CORBA				\
+@@ -24,7 +22,6 @@
+ 	--noskels --nodefskels --nostubs --noidata --noheaders  \
+ 	--showcpperrors
+ IDL_FILES=dynamic-defs.idl
+-include $(top_srcdir)/Makefile.shared
+ 
+ BUILT_SOURCES = $(DYNAMIC_IDLOUT)
+ CLEANFILES = $(BUILT_SOURCES)
+diff -Nur ORBit2-2.3.102/src/orb/orb-core/Makefile.am ORBit2-2.3.102.new/src/orb/orb-core/Makefile.am
+--- ORBit2-2.3.102/src/orb/orb-core/Makefile.am	Sun Nov 18 22:28:30 2001
++++ ORBit2-2.3.102.new/src/orb/orb-core/Makefile.am	Tue Jan 15 02:01:34 2002
+@@ -58,7 +58,6 @@
+ 	--define=Object=OObject --define=TypeCode=TTypeCode	\
+         --showcpperrors
+ IDL_FILES=corba-defs.idl iop-defs.idl corba-ops.idl orbit-interface.idl
+-include $(top_srcdir)/Makefile.shared
+ 
+ IDL_FLAGS_CORBA_OPS = --showcpperrors
+ $(OPS_IDLOUT): corba-ops.idl $(IDL_COMPILER)
+diff -Nur ORBit2-2.3.102/src/orb/poa/Makefile.am ORBit2-2.3.102.new/src/orb/poa/Makefile.am
+--- ORBit2-2.3.102/src/orb/poa/Makefile.am	Mon Nov 26 00:46:55 2001
++++ ORBit2-2.3.102.new/src/orb/poa/Makefile.am	Tue Jan 15 02:01:11 2002
+@@ -39,7 +39,6 @@
+ 	--define=Object=OObject --define=TypeCode=TTypeCode	\
+         --showcpperrors
+ IDL_FILES=poa-defs.idl
+-include $(top_srcdir)/Makefile.shared
+ 
+ BUILT_SOURCES = $(POA_IDLOUT)
+ CLEANFILES = $(BUILT_SOURCES)
+diff -Nur ORBit2-2.3.102/src/services/name/Makefile.am ORBit2-2.3.102.new/src/services/name/Makefile.am
+--- ORBit2-2.3.102/src/services/name/Makefile.am	Wed Jan  9 15:15:28 2002
++++ ORBit2-2.3.102.new/src/services/name/Makefile.am	Tue Jan 15 02:01:50 2002
+@@ -33,7 +33,6 @@
+ 
+ IDL_FLAGS=--showcpperrors
+ IDL_FILES=CosNaming.idl
+-include $(top_srcdir)/Makefile.shared
+ 
+ CLEANFILES=my_cosnaming_built $(BUILT_SOURCES)
+ 
