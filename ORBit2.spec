@@ -13,7 +13,6 @@ Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-disable_test.patch
-Patch1:		%{name}-am.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -108,13 +107,11 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %prep
 %setup  -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 libtoolize --copy --force
 aclocal
 autoconf
-automake -a -c
 
 %configure
 %{__make}
@@ -133,24 +130,26 @@ gzip -9nf TODO NEWS
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%post devel
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%postun devel
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/name-client-2
+%attr(755,root,root) %{_bindir}/orbit-idl-2
+%attr(755,root,root) %{_bindir}/orbit-name-server-2
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%{_datadir}/idl/orbit-*
 
 %files devel
 %defattr(644,root,root,755)
 %doc *.gz
-%{_pkgconfigdir}/*
-%{_includedir}/*
+%attr(755,root,root) %{_bindir}/orbit2-config
+%attr(755,root,root) %{_libdir}/lib*.??
+%{_pkgconfigdir}/*.pc
+%{_includedir}/orbit-*
 %{_aclocaldir}/*
 
 %files static
 %defattr(644,root,root,755)
+%{_libdir}/lib*.a
