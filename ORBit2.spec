@@ -2,26 +2,29 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	RequХte d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.3.103
-Release:	3
+Version:	2.3.104
+Release:	1
 Epoch:		1
 License:	LGPL/GPL
 Group:		Libraries
-Group(de):	Libraries
+Group(de):	Bibliotheken
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt):	Bibliotecas
 Group(pt_BR):	Bibliotecas
 Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Source1:	%{name}-Makefile.shared
 Patch0:		%{name}-disable_test.patch
+Patch1:		%{name}-am15.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 1.3.13
 BuildRequires:	linc-devel >= 0.1.16
-BuildRequires:	libIDL-devel >= 0.7.3
+BuildRequires:	libIDL-devel >= 0.7.4
 BuildRequires:	flex
 BuildRequires:	indent
 BuildRequires:	libtool
@@ -54,11 +57,12 @@ Summary:	Header files, and utilities for ORBit
 Summary(fr):	Librairies statiques et fichiers entЙte pour ORBit
 Summary(pl):	Pliki nagЁСwkowe i u©ytki dla ORBit
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
 Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
@@ -92,11 +96,12 @@ programСw u©ywaj╠cych technologi CORBA.
 Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
 Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
@@ -120,13 +125,16 @@ zlinkowanych statycznie u©ywaj╠cych technologii CORBA.
 %prep
 %setup  -q
 %patch0 -p1
+%patch1 -p1
+
+install %{SOURCE1} Makefile.shared
 
 %build
 rm -f missing
-install /usr/share/automake/missing .
 libtoolize --copy --force
 aclocal
 autoconf
+automake -a -c
 %configure
 %{__make}
 
