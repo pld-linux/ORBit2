@@ -20,6 +20,7 @@ BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.2
 BuildRequires:	libtool
 BuildRequires:	popt-devel
+BuildRequires:	gtk-doc
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
