@@ -2,21 +2,21 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.8.0
+Version:	2.8.1
 Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	1d6bab25ea26a022da011e7934eebee1
+# Source0-md5:	062674985948deebf9f8a9117c3c7754
 Patch0:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	glib2-devel >= 2.2.3
 BuildRequires:	indent
-BuildRequires:	libIDL-devel >= 0.8.0
+BuildRequires:	libIDL-devel >= 0.8.2
 BuildRequires:	libtool
 BuildRequires:	popt-devel
 Provides:		linc = 1.1.1
@@ -50,9 +50,9 @@ Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
-Requires:	glib2-devel >= 2.0.0
+Requires:	glib2-devel >= 2.2.3
 Requires:	indent
-Requires:	libIDL-devel
+Requires:	libIDL-devel >= 0.8.2
 Requires:	popt-devel
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
