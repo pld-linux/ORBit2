@@ -2,7 +2,7 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.6.0
+Version:	2.6.1
 Release:	1
 Epoch:		1
 License:	GPL/LGPL
@@ -155,5 +155,6 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libORBit-2.a
+%{_libdir}/libORBit-imodule-2.a
 %{_libdir}/libORBitCosNaming-2.a
 %{_libdir}/orbit-2.0/Everything_module.a
