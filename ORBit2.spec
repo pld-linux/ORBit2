@@ -11,6 +11,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	âÉÂÌÉÏÔÅËÉ
+Group(uk):	â¦ÂÌ¦ÏÔÅËÉ
 Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-disable_test.patch
 URL:		http://www.labs.redhat.com/orbit/
@@ -52,8 +55,12 @@ Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name} = %{version}
 Requires:	glib2-devel
 Requires:	indent
@@ -71,7 +78,7 @@ write programs that use CORBA technology.
 Librairies statiques et fichiers entête requis pour le development ou
 la compilation de programmes utilisant ORBit.
 
-%description -l pl devel
+%description devel -l pl
 ORBit to wysokiej wydajno¶ci CORBA ORB ze wsparciem dla jêzyka C.
 Pozwala na wysy³anie pró¶b i otrzymywanie odpowiedzi od innych
 programów bez znajomo¶ci po³o¿enia tych dwóch programów.
@@ -84,8 +91,12 @@ Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -96,8 +107,7 @@ programs, regardless of the locations of the two programs.
 This package includes static libraries neecessary to write programs
 statically linked that use CORBA technology.
 
-%description -l pl static
-
+%description static -l pl
 ORBit to wysokiej wydajno¶ci CORBA ORB ze wsparciem dla jêzyka C.
 Pozwala na wysy³anie pró¶b i otrzymywanie odpowiedzi od innych
 programów bez znajomo¶ci po³o¿enia tych dwóch programów.
@@ -128,11 +138,11 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf TODO NEWS
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
