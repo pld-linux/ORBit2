@@ -31,16 +31,3 @@
  EXTRA_DIST = $(IDL_FILES) test.sh $(included_src)
  
  dist-hook:
---- ./configure.in.org	Sun Feb 10 18:43:45 2002
-+++ ./configure.in	Sun Feb 10 18:49:23 2002
-@@ -236,6 +236,10 @@
- docs/Makefile
- docs/devel/Makefile
- docs/internals/Makefile
-+test/Makefile
-+test/everything/Makefile
-+test/inhibit/Makefile
-+test/poa/Makefile
- ])
- 
- echo "ORBit configuration:
