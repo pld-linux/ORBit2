@@ -1,0 +1,46 @@
+--- ./test/everything/Makefile.am.org	Sun Nov 18 20:01:39 2001
++++ ./test/everything/Makefile.am	Sun Feb 10 18:59:49 2002
+@@ -31,7 +31,7 @@
+ client_SOURCES=${EVERYTHING_BUILT} client.c everything.idl constants.h
+ client_DEPENDENCES=${EVERYTHING_BUILT} $(included_src)
+ client_LDADD = $(LDADD)
+-client_LDFLAGS = -static -module
++client_LDFLAGS = -dynamic -module
+ 
+ included_src = \
+ 	anyServer.c	 \
+@@ -55,19 +55,17 @@
+         $(top_builddir)/src/orb/libORBit-2.la
+ server_SOURCES=server.c ${EVERYTHING_BUILT} everything.idl constants.h
+ server_DEPENDENCES=${EVERYTHING_BUILT} $(included_src)
+-server_LDFLAGS = -static -module
++server_LDFLAGS = -dynamic -module
+ 
+ IDL_FLAGS= --showcpperrors --add-imodule
+ IDL_FILES= everything.idl
+ include $(top_srcdir)/Makefile.shared
+ 
+-BUILT_SOURCES = ${EVERYTHING_BUILT} everything-imodule.c
+-CLEANFILES = ${BUILT_SOURCES} iorfile
+ 
+ TESTS = $(srcdir)/test.sh
+ 
+ BUILT_SOURCES = $(EVERYTHING_IDLOUT)
+-CLEANFILES = $(BUILT_SOURCES)
++CLEANFILES = ${BUILT_SOURCES} iorfile
+ EXTRA_DIST = $(IDL_FILES) test.sh $(included_src)
+ 
+ dist-hook:
+--- ./configure.in.org	Sun Feb 10 18:43:45 2002
++++ ./configure.in	Sun Feb 10 18:49:23 2002
+@@ -236,6 +236,10 @@
+ docs/Makefile
+ docs/devel/Makefile
+ docs/internals/Makefile
++test/Makefile
++test/everything/Makefile
++test/inhibit/Makefile
++test/poa/Makefile
+ ])
+ 
+ echo "ORBit configuration:
