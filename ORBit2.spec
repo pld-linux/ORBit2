@@ -2,8 +2,8 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.5.0
-Release:	2
+Version:	2.5.1
+Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
@@ -20,7 +20,7 @@ BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.0
 BuildRequires:	libtool
-BuildRequires:	linc-devel >= 0.7.0
+BuildRequires:	linc-devel >= 0.7.1
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
