@@ -7,9 +7,11 @@ Release:	2
 Epoch:		1
 License:	LGPL/GPL
 Group:		Libraries
+Group(cs):	Knihovny
 Group(de):	Bibliotheken
 Group(es):	Bibliotecas
 Group(fr):	Librairies
+Group(ja):	¥é¥¤¥Ö¥é¥ê
 Group(pl):	Biblioteki
 Group(pt):	Bibliotecas
 Group(pt_BR):	Bibliotecas
@@ -58,9 +60,11 @@ Summary:	Header files, and utilities for ORBit
 Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
+Group(cs):	Vývojové prostøedky/Knihovny
 Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(ja):	³«È¯/¥é¥¤¥Ö¥é¥ê
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
 Group(pt):	Desenvolvimento/Bibliotecas
@@ -97,9 +101,11 @@ programów u¿ywaj±cych technologi CORBA.
 Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
+Group(cs):	Vývojové prostøedky/Knihovny
 Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(ja):	³«È¯/¥é¥¤¥Ö¥é¥ê
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
 Group(pt):	Desenvolvimento/Bibliotecas
