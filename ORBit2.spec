@@ -3,7 +3,7 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.3.106
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL/GPL
 Group:		Libraries
@@ -22,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	linc-devel >= 0.1.17
 BuildRequires:	popt-devel >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libORBit2_0
 
 %define		_sysconfdir	/etc
 
@@ -55,6 +56,7 @@ Requires:	indent
 Requires:	libIDL-devel
 Requires:	linc-devel
 Requires:	popt-devel
+Obsoletes:	libORBit2_0-devel
 
 %description
 devel ORBit is a high-performance CORBA ORB with support for the C
