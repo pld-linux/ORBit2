@@ -24,7 +24,6 @@ Group(sl):	Knjiænice
 Group(sv):	Bibliotek
 Group(uk):	‚¶¬Ã¶œ‘≈À…
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
-Source1:	%{name}-Makefile.shared
 Patch0:		%{name}-disable_test.patch
 Patch1:		%{name}-am15.patch
 Patch2:		%{name}-ac_fix.patch
