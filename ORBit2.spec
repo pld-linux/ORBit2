@@ -109,7 +109,7 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure
