@@ -24,6 +24,7 @@ BuildRequires:	linc-devel >= 1.1.1
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
+Conflicts:	libbonobo < 2.3.2
 
 %description
 ORBit is a high-performance CORBA (Common Object Request Broker
