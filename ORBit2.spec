@@ -2,8 +2,8 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.3.109
-Release:	2
+Version:	2.3.110
+Release:	1
 Epoch:		1
 License:	LGPL/GPL
 Group:		Libraries
@@ -19,7 +19,7 @@ BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.7.4
 BuildRequires:	libtool
-BuildRequires:	linc-devel >= 0.1.21
+BuildRequires:	linc-devel >= 0.1.22
 BuildRequires:	popt-devel >= 1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
@@ -133,10 +133,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ior-decode-2
 %attr(755,root,root) %{_bindir}/name-client-2
 %attr(755,root,root) %{_bindir}/orbit-idl-2
 %attr(755,root,root) %{_bindir}/orbit-name-server-2
+%attr(755,root,root) %{_bindir}/typelib-dump
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%dir %{_libdir}/orbit-2.0
+%{_libdir}/orbit-2.0/*.la
+%{_libdir}/orbit-2.0/*.so*
 %{_datadir}/idl/orbit-*
 
 %files devel
