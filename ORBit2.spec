@@ -100,7 +100,7 @@ Pozwala na wysy³anie pró¶b i otrzymywanie odpowiedzi od innych
 programów bez znajomo¶ci po³o¿enia tych dwóch programów.
 
 Ten pakiet zawiera biblioteki statyczne potrzebne do pisania programów
-zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
+skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 
 %prep
 %setup  -q
