@@ -3,13 +3,14 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.8.3
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	c6c4b63de2f70310e33a52a37257ddaf
 Patch0:		%{name}-pthread.patch
+Patch1:		%{name}-am18.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -103,14 +104,15 @@ Ten pakiet zawiera biblioteki statyczne potrzebne do pisania programów
 skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--with-html-dir=%{_gtkdocdir}
