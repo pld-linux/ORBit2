@@ -11,6 +11,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.4/%{name}-%{version}.t
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-ac_fix.patch
 Patch2:		%{name}-am16.patch
+Patch3:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -105,6 +106,7 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing
