@@ -7,7 +7,7 @@ Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-ac_fix.patch
 Patch2:		%{name}-am16.patch
@@ -131,6 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/ior-decode-2
 %attr(755,root,root) %{_bindir}/orbit-idl-2
 %attr(755,root,root) %{_bindir}/typelib-dump
@@ -142,7 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc TODO NEWS
+%doc ChangeLog
 %attr(755,root,root) %{_bindir}/orbit2-config
 %attr(755,root,root) %{_libdir}/lib*.??
 %{_libdir}/libname-server-2.a
