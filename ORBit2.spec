@@ -25,8 +25,6 @@ BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
 
-%define		_sysconfdir	/etc
-
 %description
 ORBit is a high-performance CORBA (Common Object Request Broker
 Architecture) ORB (object request broker). It allows programs to send
