@@ -124,7 +124,6 @@ rm -rf $RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
-
 gzip -9nf TODO NEWS
 
 %post   -p /sbin/ldconfig
