@@ -3,18 +3,19 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.9.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
 # Source0-md5:	eade58c49da56daad86d6c90c1de0e58
 Patch0:		%{name}-pthread.patch
+Patch1:		%{name}-am18.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 2.2.3
+BuildRequires:	glib2-devel >= 2.3.1
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.2
 BuildRequires:	libtool
@@ -50,7 +51,7 @@ Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
-Requires:	glib2-devel >= 2.2.3
+Requires:	glib2-devel >= 2.3.1
 Requires:	indent
 Requires:	libIDL-devel >= 0.8.2
 Requires:	popt-devel
@@ -105,6 +106,7 @@ skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 %prep
 %setup  -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
