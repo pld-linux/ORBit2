@@ -2,7 +2,7 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.3.108
+Version:	2.3.109
 Release:	1
 Epoch:		1
 License:	LGPL/GPL
