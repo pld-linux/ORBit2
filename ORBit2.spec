@@ -3,7 +3,7 @@ Summary(fr):	RequХte d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.3.102
-Release:	2
+Release:	3
 Epoch:		1
 License:	LGPL/GPL
 Group:		Libraries
@@ -14,7 +14,7 @@ Group(pl):	Biblioteki
 Group(pt_BR):	Bibliotecas
 Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
-Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-disable_test.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
