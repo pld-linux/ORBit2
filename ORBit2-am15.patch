@@ -19,3 +19,16 @@
  
  IDL_FLAGS = -I$(top_srcdir)/src/idl/CORBA_PIDL			\
  	-I$(top_srcdir)/src/idl/CORBA				\
+--- ORBit2-2.3.108/src/services/name/Makefile.am~	Wed Apr 24 19:09:26 2002
++++ ORBit2-2.3.108/src/services/name/Makefile.am	Wed Apr 24 19:09:26 2002
+@@ -15,10 +15,6 @@
+ 	CosNaming_impl.h
+ 
+ libORBitCosNaming_2_la_LDFLAGS =					\
+-	-version-info $(LT_VERSION)					\
+-	$(ORBIT_NAME_LIBS)
+-
+-libORBitCosNaming_2_la_LDFLAGS =					\
+ 	$(top_builddir)/src/orb/libORBit-2.la
+ 
+ INCLUDES =				\
