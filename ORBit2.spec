@@ -2,16 +2,15 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.7.0
+Version:	2.7.1
 Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-am15.patch
+Patch0:		%{name}-am.patch
 Patch1:		%{name}-ac_fix.patch
-Patch2:		%{name}-am16.patch
-Patch3:		%{name}-pthread.patch
+Patch2:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,7 +19,7 @@ BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.0
 BuildRequires:	libtool
-BuildRequires:	linc-devel >= 1.1.0
+BuildRequires:	linc-devel >= 1.1.1
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
@@ -104,7 +103,6 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 rm -f missing
@@ -119,9 +117,7 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	m4datadir=%{_aclocaldir} \
-	pkgconfigdir=%{_pkgconfigdir}
+	DESTDIR=$RPM_BUILD_ROOT 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
