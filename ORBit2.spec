@@ -15,12 +15,12 @@ URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	indent
-BuildRequires:	libIDL-devel >= 0.7.4
+BuildRequires:	libIDL-devel >= 0.8.0
 BuildRequires:	libtool
-BuildRequires:	linc-devel >= 0.5.0
-BuildRequires:	popt-devel >= 1.4
+BuildRequires:	linc-devel >= 0.5.2
+BuildRequires:	popt-devel >= 1.6.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
 
