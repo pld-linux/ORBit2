@@ -9,9 +9,7 @@ License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	927f8f8b5726aa426aff783cb5b4ab7e
-#Patch0:		%{name}-am.patch
-#Patch1:		%{name}-ac_fix.patch
-Patch2:		%{name}-pthread.patch
+Patch0:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -102,9 +100,7 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 
 %prep
 %setup  -q
-#%patch0 -p1
-#%patch1 -p1
-%patch2 -p1
+%patch0 -p1
 
 %build
 rm -f missing
