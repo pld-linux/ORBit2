@@ -2,23 +2,24 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.8.3
-Release:	2
+Version:	2.10.0
+Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	c6c4b63de2f70310e33a52a37257ddaf
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	fe86ec038fc51ee0e90e84169a8dda6c
 Patch0:		%{name}-pthread.patch
-Patch1:		%{name}-am18.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 2.2.3
+BuildRequires:	glib2-devel >= 1:2.3.1
+BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.2
 BuildRequires:	libtool
+BuildRequires:	pkgconfig >= 0.14.0
 BuildRequires:	popt-devel
 BuildRequires:	gtk-doc
 Provides:	linc = 1.1.1
@@ -51,8 +52,8 @@ Summary:	Header files, and utilities for ORBit
 Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
-Requires:	glib2-devel >= 2.2.3
+Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	glib2-devel >= 1:2.3.1
 Requires:	indent
 Requires:	libIDL-devel >= 0.8.2
 Requires:	popt-devel
@@ -84,7 +85,7 @@ programów u¿ywaj±cych technologi CORBA.
 Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Provides:	linc-static = 1.1.1
 Obsoletes:	linc-static
 
@@ -107,16 +108,18 @@ skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
+gtkdocize --copy
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	--enable-gtk-doc \
+	--enable-http
 
 %{__make}
 
@@ -151,8 +154,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/orbit2-config
-%{_libdir}/lib*.la
 %attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_libdir}/libname-server-2.a
 %{_pkgconfigdir}/*.pc
 %{_includedir}/orbit-*
