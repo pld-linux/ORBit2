@@ -2,7 +2,7 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	RequХte d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.3.102
+Version:	2.3.103
 Release:	3
 Epoch:		1
 License:	LGPL/GPL
@@ -19,9 +19,9 @@ Patch0:		%{name}-disable_test.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	glib2-devel >= 1.3.10
-BuildRequires:	linc-devel >= 0.1.12
-BuildRequires:	libIDL-devel
+BuildRequires:	glib2-devel >= 1.3.13
+BuildRequires:	linc-devel >= 0.1.16
+BuildRequires:	libIDL-devel >= 0.7.3
 BuildRequires:	flex
 BuildRequires:	indent
 BuildRequires:	libtool
@@ -64,6 +64,8 @@ Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 Requires:	glib2-devel
 Requires:	indent
+Requires:	libIDL-devel
+Requires:	linc-devel
 Requires:	popt-devel
 
 %description
