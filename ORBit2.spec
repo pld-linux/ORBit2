@@ -2,23 +2,24 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.9.7
+Version:	2.9.8
 Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	e4203e5573e379c17634c9e0a130d30b
+# Source0-md5:	41d73750e8477c793621d22b86cb3827
 Patch0:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 2.3.1
-BuildRequires:	gtk-doc
+BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.2
 BuildRequires:	libtool
+BuildRequires:	pkgconfig >= 0.14.0
 BuildRequires:	popt-devel
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
@@ -50,7 +51,7 @@ Summary:	Header files, and utilities for ORBit
 Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 2.3.1
 Requires:	indent
 Requires:	libIDL-devel >= 0.8.2
@@ -83,7 +84,7 @@ programów u¿ywaj±cych technologi CORBA.
 Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Provides:	linc-static = 1.1.1
 Obsoletes:	linc-static
 
@@ -115,7 +116,9 @@ gtkdocize --copy
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-html-dir=%{_gtkdocdir}
+	--with-html-dir=%{_gtkdocdir} \
+	--enable-gtk-doc \
+	--enable-http
 
 %{__make}
 
