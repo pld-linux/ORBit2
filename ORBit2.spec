@@ -8,6 +8,7 @@ Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
+# Source0-md5: 55564fc4c8c6825ff71bdbcec77b7e42
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-ac_fix.patch
 Patch2:		%{name}-pthread.patch
