@@ -50,7 +50,7 @@ Summary:	Header files, and utilities for ORBit
 Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	glib2-devel >= 2.0.0
 Requires:	indent
 Requires:	libIDL-devel
@@ -82,7 +82,7 @@ programów u¿ywaj±cych technologi CORBA.
 Summary:	Static libraries for ORBit
 Summary(pl):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
 ORBit is a high-performance CORBA ORB with support for the C language.
