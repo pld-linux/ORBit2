@@ -114,14 +114,14 @@ rm -f missing
 %{__automake}
 %configure \
 	--with-html-dir=%{_gtkdocdir}
-	
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT
 
 # no static module - shut up check-files
 rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.{la,a}
