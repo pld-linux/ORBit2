@@ -153,8 +153,6 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %patch1 -p1
 %patch2 -p1
 
-install %{SOURCE1} Makefile.shared
-
 %build
 rm -f missing
 libtoolize --copy --force
