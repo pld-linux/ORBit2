@@ -123,8 +123,6 @@ rm -rf $RPM_BUILD_ROOT
 	m4datadir=%{_aclocaldir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
-gzip -9nf TODO NEWS
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -146,7 +144,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc TODO NEWS
 %attr(755,root,root) %{_bindir}/orbit2-config
 %attr(755,root,root) %{_libdir}/lib*.??
 %{_libdir}/libname-server-2.a
