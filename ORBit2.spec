@@ -2,19 +2,19 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.10.2
+Version:	2.10.3
 Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	c862e3261b52a84321e89f57e5600da6
+# Source0-md5:	17fee360a7d59271204b99d26899365f
 Patch0:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 1:2.4.1
+BuildRequires:	glib2-devel >= 1:2.4.2
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.3
@@ -52,7 +52,7 @@ Summary(fr):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl):	Pliki nag³ówkowe i u¿ytki dla ORBit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	glib2-devel >= 1:2.4.1
+Requires:	glib2-devel >= 1:2.4.2
 Requires:	indent
 Requires:	libIDL-devel >= 0.8.3
 Requires:	popt-devel
@@ -60,7 +60,7 @@ Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
 Obsoletes:	linc-devel
 
-%description
+%description devel
 devel ORBit is a high-performance CORBA ORB with support for the C
 language. It allows programs to send requests and receive replies from
 other programs, regardless of the locations of the two programs.
