@@ -147,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/orbit2-config
 %attr(755,root,root) %{_libdir}/lib*.??
-%{_libdir}/libname-server.a
+%{_libdir}/libname-server-2.a
 %{_pkgconfigdir}/*.pc
 %{_includedir}/orbit-*
 %{_aclocaldir}/*
