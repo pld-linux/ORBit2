@@ -20,7 +20,7 @@ BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.0
 BuildRequires:	libtool
 BuildRequires:	linc-devel >= 0.5.3
-BuildRequires:	popt-devel >= 1.6.4
+BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
 
