@@ -2,25 +2,25 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.4.3
+Version:	2.4.4
 Release:	1
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	e487accae11949d606938e2678191f05
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-ac_fix.patch
 Patch2:		%{name}-am16.patch
-Patch3:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	glib2-devel >= 2.0.7
 BuildRequires:	indent
-BuildRequires:	libIDL-devel >= 0.8.0
+BuildRequires:	libIDL-devel >= 0.8.2
 BuildRequires:	libtool
-BuildRequires:	linc-devel >= 0.5.3
+BuildRequires:	linc-devel >= 0.5.5
 BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libORBit2_0
@@ -106,7 +106,6 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
 rm -f missing
@@ -147,7 +146,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/orbit2-config
-%attr(755,root,root) %{_libdir}/lib*.??
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_libdir}/libname-server-2.a
 %{_pkgconfigdir}/*.pc
 %{_includedir}/orbit-*
