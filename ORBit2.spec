@@ -2,13 +2,13 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.7.1
-Release:	1
+Version:	2.7.2
+Release:	0.9
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5: 55564fc4c8c6825ff71bdbcec77b7e42
+# Source0-md5:	65461a4e2bc9e533253ee602a81aa62d
 Patch0:		%{name}-am.patch
 Patch1:		%{name}-ac_fix.patch
 Patch2:		%{name}-pthread.patch
@@ -133,6 +133,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/ior-decode-2
+#Waiting for new linc package
+#%attr(755,root,root) %{_bindir}/linc-cleanup-sockets
 %attr(755,root,root) %{_bindir}/orbit-idl-2
 %attr(755,root,root) %{_bindir}/typelib-dump
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
