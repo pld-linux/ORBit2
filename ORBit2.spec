@@ -2,15 +2,15 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.7.2
+Version:	2.7.3
 Release:	0.9
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	65461a4e2bc9e533253ee602a81aa62d
-Patch0:		%{name}-am.patch
-Patch1:		%{name}-ac_fix.patch
+# Source0-md5:	927f8f8b5726aa426aff783cb5b4ab7e
+#Patch0:		%{name}-am.patch
+#Patch1:		%{name}-ac_fix.patch
 Patch2:		%{name}-pthread.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf
@@ -102,8 +102,8 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 
 %prep
 %setup  -q
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 %patch2 -p1
 
 %build
@@ -112,7 +112,9 @@ rm -f missing
 %{__aclocal}
 %{__autoconf}
 %{__automake}
-%configure
+%configure \
+	--with-html-dir=%{_gtkdocdir}
+	
 %{__make}
 
 %install
@@ -153,6 +155,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/*.pc
 %{_includedir}/orbit-*
 %{_aclocaldir}/*
+%{_gtkdocdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
