@@ -119,6 +119,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT 
 
+# no static module - shut up check-files
+rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.{la,a}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -133,7 +136,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/typelib-dump
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/orbit-2.0
-%{_libdir}/orbit-2.0/*.la
 %{_libdir}/orbit-2.0/*.so*
 %{_datadir}/idl/orbit-*
 
@@ -153,4 +155,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libORBit-2.a
 %{_libdir}/libORBit-imodule-2.a
 %{_libdir}/libORBitCosNaming-2.a
-%{_libdir}/orbit-2.0/Everything_module.a
