@@ -108,7 +108,7 @@ zlinkowanych statycznie u¿ywaj±cych technologii CORBA.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
