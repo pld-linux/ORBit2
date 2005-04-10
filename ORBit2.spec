@@ -3,7 +3,7 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.12.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL/LGPL
 Group:		Libraries
@@ -21,6 +21,7 @@ BuildRequires:	libIDL-devel >= 0.8.4
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.14.0
 BuildRequires:	popt-devel
+BuildRequires:	rpmbuild(macros) >= 1.197
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
@@ -109,7 +110,7 @@ skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 %patch0 -p1
 
 %build
-gtkdocize --copy
+%{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -134,8 +135,11 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.{la,a}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post
+%ldconfig_post
+
+%postun
+%ldconfig_postun
 
 %files
 %defattr(644,root,root,755)
