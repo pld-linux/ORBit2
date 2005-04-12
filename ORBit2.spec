@@ -22,7 +22,6 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.14.0
 BuildRequires:	popt-devel
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires(post,postun):	/sbin/ldconfig
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
