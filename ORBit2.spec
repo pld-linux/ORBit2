@@ -135,11 +135,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.{la,a}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-%ldconfig_post
-
-%postun
-%ldconfig_postun
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
