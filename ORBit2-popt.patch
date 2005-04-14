@@ -1,0 +1,23 @@
+--- ORBit2-2.12.2/src/orb/Makefile.am.orig	2003-06-06 17:49:52.000000000 +0200
++++ ORBit2-2.12.2/src/orb/Makefile.am	2005-04-14 19:11:35.875807168 +0200
+@@ -19,8 +19,7 @@
+ libORBit_2_la_LDFLAGS =               \
+ 	-version-info $(LT_VERSION)   \
+ 	-no-undefined		      \
+-	$(ORBIT_LIBS)                 \
+-	-lpopt
++	$(ORBIT_LIBS)
+ 
+ libORBit_2_la_LIBADD= \
+ 	util/liborb-util.la \
+--- ORBit2-2.12.2/src/services/name/Makefile.am.orig	2005-01-28 16:46:51.000000000 +0100
++++ ORBit2-2.12.2/src/services/name/Makefile.am	2005-04-14 19:19:49.182813104 +0200
+@@ -69,7 +69,7 @@
+ orbit_name_server_2_SOURCES = boot.c
+ orbit_name_server_2_LDFLAGS = $(FLAGS)
+ orbit_name_server_2_DEPENDENCIES = $(DEPS) CosNaming.h
+-orbit_name_server_2_LDADD = libname-server-2.a $(LDADDS)
++orbit_name_server_2_LDADD = libname-server-2.a $(LDADDS) -lpopt
+ 
+ $(libname_server_2_a_OBJECTS) $(name_client_2_OBJECTS) $(orbit_name_server_2_OBJECTS) : CosNaming.h
+ 
