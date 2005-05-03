@@ -3,7 +3,7 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.12.2
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
