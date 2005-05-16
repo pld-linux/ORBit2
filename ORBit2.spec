@@ -3,7 +3,7 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.12.2
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
@@ -11,6 +11,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.12/%{name}-%{version}.t
 # Source0-md5:	7f963dcd0d84e6854460449383cc8c70
 Patch0:		%{name}-pthread.patch
 Patch1:		%{name}-popt.patch
+Patch2:		%{name}-stack_size.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
@@ -112,6 +113,7 @@ skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 # workaround for variable name
 echo 'm4_pattern_allow(PKG_CONFIG_MIN_VERSION)' >> acinclude.m4
