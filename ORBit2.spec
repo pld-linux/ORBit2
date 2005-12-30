@@ -60,6 +60,7 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.6.3
 Requires:	indent
 Requires:	libIDL-devel >= 0.8.5
+Requires:	pkgconfig
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
 Obsoletes:	linc-devel
