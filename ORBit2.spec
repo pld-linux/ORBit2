@@ -1,4 +1,3 @@
-%bcond_without  apidocs         # disable gtk-doc
 Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
@@ -17,11 +16,7 @@ BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.6.3
-%if %{with apidocs}
 BuildRequires:	gtk-doc >= 1.3
-%else
-BuildRequires:	gtk-doc-automake
-%endif
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.5
 BuildRequires:	libtool
@@ -64,6 +59,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.6.3
 Requires:	indent
+Requires:	%{name}-automake = %{epoch}:%{version}-%{release}
 Requires:	libIDL-devel >= 0.8.5
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
@@ -132,18 +128,16 @@ Makra dla automake do ORBit2.
 %patch1 -p1
 
 %build
-# workaround a bug that prevents regenaration without gtk-doc, will need to fix it one day
-%if %{with apidocs}
 %{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-%endif
+
 %configure \
-	%{?with_apidocs:--with-html-dir=%{_gtkdocdir}} \
-	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
+	--with-html-dir=%{_gtkdocdir} \
+	--enable-gtk-doc \
 	--enable-http
 %{__make}
 
@@ -183,7 +177,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libname-server-2.a
 %{_pkgconfigdir}/*.pc
 %{_includedir}/orbit-*
-%{?with_apidocs:%{_gtkdocdir}/%{name}}
+%{_gtkdocdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
