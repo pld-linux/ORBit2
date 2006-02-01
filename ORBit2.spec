@@ -1,9 +1,10 @@
+%bcond_without  apidocs         # disable gtk-doc
 Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.12.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
@@ -16,7 +17,11 @@ BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.6.3
+%if %{with apidocs}
 BuildRequires:	gtk-doc >= 1.3
+%else
+BuildRequires:	gtk-doc-automake
+%endif
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.5
 BuildRequires:	libtool
@@ -108,21 +113,37 @@ programów bez znajomo¶ci po³o¿enia tych dwóch programów.
 Ten pakiet zawiera biblioteki statyczne potrzebne do pisania programów
 skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 
+%package automake
+Summary:        Automake macros for ORBit2
+Summary(pl):    Makra dla automake do ORBit2
+Group:          Development/Tools
+Requires:       automake
+Conflicts:      ORBit2-devel < 1:2.12.4-2
+
+%description automake
+Automake macros for ORBit2.
+
+%description automake -l pl
+Makra dla automake do ORBit2.
+
 %prep
 %setup -q
 %patch0 -p1
 %patch1 -p1
 
 %build
+# workaround a bug that prevents regenaration without gtk-doc, will need to fix it one day
+%if %{with apidocs}
 %{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
+%endif
 %configure \
-	--with-html-dir=%{_gtkdocdir} \
-	--enable-gtk-doc \
+	%{?with_apidocs:--with-html-dir=%{_gtkdocdir}} \
+	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--enable-http
 %{__make}
 
@@ -162,11 +183,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libname-server-2.a
 %{_pkgconfigdir}/*.pc
 %{_includedir}/orbit-*
-%{_aclocaldir}/*
-%{_gtkdocdir}/%{name}
+%{?with_apidocs:%{_gtkdocdir}/%{name}}
 
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libORBit-2.a
 %{_libdir}/libORBit-imodule-2.a
 %{_libdir}/libORBitCosNaming-2.a
+
+%files automake
+%defattr(644,root,root,755)
+%{_aclocaldir}/*
