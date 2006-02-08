@@ -2,13 +2,13 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.12.4
-Release:	2
+Version:	2.12.5
+Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	aa2cae6e7957c369edccbd98ba78dea9
+# Source0-md5:	cc52f71d974043414afea44c78e6d705
 Patch0:		%{name}-pthread.patch
 Patch1:		%{name}-popt.patch
 URL:		http://www.labs.redhat.com/orbit/
@@ -29,6 +29,7 @@ Requires:	popt >= 1.5
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
+Obsoletes:	ORBit2-automake
 Conflicts:	libbonobo < 2.3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,7 +60,6 @@ Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.6.3
 Requires:	indent
-Requires:	%{name}-automake = %{epoch}:%{version}-%{release}
 Requires:	libIDL-devel >= 0.8.5
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
@@ -109,19 +109,6 @@ programów bez znajomo¶ci po³o¿enia tych dwóch programów.
 Ten pakiet zawiera biblioteki statyczne potrzebne do pisania programów
 skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 
-%package automake
-Summary:        Automake macros for ORBit2
-Summary(pl):    Makra dla automake do ORBit2
-Group:          Development/Tools
-Requires:       automake
-Conflicts:      ORBit2-devel < 1:2.12.4-2
-
-%description automake
-Automake macros for ORBit2.
-
-%description automake -l pl
-Makra dla automake do ORBit2.
-
 %prep
 %setup -q
 %patch0 -p1
@@ -134,7 +121,6 @@ Makra dla automake do ORBit2.
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-
 %configure \
 	--with-html-dir=%{_gtkdocdir} \
 	--enable-gtk-doc \
@@ -175,8 +161,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_libdir}/libname-server-2.a
-%{_pkgconfigdir}/*.pc
+%{_aclocaldir}/* 
 %{_includedir}/orbit-*
+%{_pkgconfigdir}/*.pc
 %{_gtkdocdir}/%{name}
 
 %files static
@@ -184,7 +171,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libORBit-2.a
 %{_libdir}/libORBit-imodule-2.a
 %{_libdir}/libORBitCosNaming-2.a
-
-%files automake
-%defattr(644,root,root,755)
-%{_aclocaldir}/*
