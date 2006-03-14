@@ -2,16 +2,17 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.12.2
+Version:	2.14.0
 Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	7f963dcd0d84e6854460449383cc8c70
+Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	bb1b4859522cb6e1a3a3dc4b7397db64
 Patch0:		%{name}-pthread.patch
+Patch1:		%{name}-popt.patch
 URL:		http://www.labs.redhat.com/orbit/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.6.3
@@ -20,8 +21,11 @@ BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.5
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.14.0
-BuildRequires:	popt-devel
+BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
+Requires:	glib2 >= 1:2.6.3
+Requires:	libIDL >= 0.8.5
+Requires:	popt >= 1.5
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
@@ -56,7 +60,7 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.6.3
 Requires:	indent
 Requires:	libIDL-devel >= 0.8.5
-Requires:	popt-devel
+Requires:	pkgconfig
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
 Obsoletes:	linc-devel
@@ -108,6 +112,7 @@ skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__gtkdocize}
