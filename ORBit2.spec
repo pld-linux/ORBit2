@@ -2,15 +2,14 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.14.1
+Version:	2.14.2
 Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	b04683718e18383ac3788a88c5bb3c4d
+# Source0-md5:	88ea9b8e686ab0dd27b4199e0f41ac84
 Patch0:		%{name}-pthread.patch
-Patch1:		%{name}-popt.patch
 URL:		http://www.labs.redhat.com/orbit/
 BuildRequires:	autoconf >= 2.12
 BuildRequires:	automake
@@ -21,11 +20,9 @@ BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.7
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.14.0
-BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	glib2 >= 1:2.12.1
 Requires:	libIDL >= 0.8.7
-Requires:	popt >= 1.5
 Provides:	linc = 1.1.1
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
@@ -112,7 +109,6 @@ skonsolidowanych statycznie u¿ywaj±cych technologii CORBA.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__gtkdocize}
