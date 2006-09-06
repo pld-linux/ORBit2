@@ -10,7 +10,7 @@ Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
 # Source0-md5:	857881e7aabf849016de9a1e9c53b328
 Patch0:		%{name}-pthread.patch
-URL:		http://www.labs.redhat.com/orbit/
+URL:		http://www.gnome.org/projects/ORBit2/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	flex
