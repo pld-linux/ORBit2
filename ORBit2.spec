@@ -3,7 +3,7 @@ Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.14.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
@@ -48,6 +48,18 @@ ORBit to wysokiej wydajno¶ci CORBA (Common Object Request Broker
 Architecture) ORB (object request broker). Pozwala na wysy³anie pró¶b
 i otrzymywanie odpowiedzi od innych programów bez znajomo¶ci po³o¿enia
 tych dwóch programów.
+
+%package apidocs
+Summary:	ORBit API documentation
+Summary(pl):	Dokumentacja API ORBit
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+ORBit API documentation.
+
+%description apidocs -l pl
+Dokumentacja API ORBit.
 
 %package devel
 Summary:	Header files, and utilities for ORBit
@@ -150,6 +162,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/orbit-2.0/*.so*
 %{_datadir}/idl/orbit-*
 
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
+
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog
@@ -160,7 +176,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_aclocaldir}/* 
 %{_includedir}/orbit-*
 %{_pkgconfigdir}/*.pc
-%{_gtkdocdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
