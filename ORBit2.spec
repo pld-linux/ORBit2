@@ -2,13 +2,13 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr):	Requète d'Objects CORBA
 Summary(pl):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.14.4
-Release:	2
+Version:	2.14.5
+Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	8379d4dab8cab57c51372ff4facbe5d6
+# Source0-md5:	5b3ca3d7ed13a76c9e7bb4a890fe68af
 Patch0:		%{name}-pthread.patch
 URL:		http://www.gnome.org/projects/ORBit2/
 BuildRequires:	autoconf >= 2.54
@@ -24,9 +24,9 @@ BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	glib2 >= 1:2.12.3
 Requires:	libIDL >= 0.8.7
 Provides:	linc = 1.1.1
+Obsoletes:	ORBit2-automake
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
-Obsoletes:	ORBit2-automake
 Conflicts:	libbonobo < 2.3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -159,7 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/typelib-dump
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %dir %{_libdir}/orbit-2.0
-%{_libdir}/orbit-2.0/*.so*
+%attr(755,root,root) %{_libdir}/orbit-2.0/*.so*
 %{_datadir}/idl/orbit-*
 
 %files apidocs
@@ -173,7 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_libdir}/libname-server-2.a
-%{_aclocaldir}/* 
+%{_aclocaldir}/*
 %{_includedir}/orbit-*
 %{_pkgconfigdir}/*.pc
 
