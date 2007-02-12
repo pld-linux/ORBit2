@@ -1,6 +1,6 @@
 Summary:	High-performance CORBA Object Request Broker
-Summary(fr.UTF-8):   Requète d'Objects CORBA
-Summary(pl.UTF-8):   Wysoko wydajny CORBA Object Request Broker
+Summary(fr.UTF-8):	Requète d'Objects CORBA
+Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.14.5
 Release:	1
@@ -51,7 +51,7 @@ tych dwóch programów.
 
 %package apidocs
 Summary:	ORBit API documentation
-Summary(pl.UTF-8):   Dokumentacja API ORBit
+Summary(pl.UTF-8):	Dokumentacja API ORBit
 Group:		Documentation
 Requires:	gtk-doc-common
 
@@ -63,8 +63,8 @@ Dokumentacja API ORBit.
 
 %package devel
 Summary:	Header files, and utilities for ORBit
-Summary(fr.UTF-8):   Librairies statiques et fichiers entête pour ORBit
-Summary(pl.UTF-8):   Pliki nagłówkowe i użytki dla ORBit
+Summary(fr.UTF-8):	Librairies statiques et fichiers entête pour ORBit
+Summary(pl.UTF-8):	Pliki nagłówkowe i użytki dla ORBit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.12.3
@@ -96,7 +96,7 @@ programów używających technologi CORBA.
 
 %package static
 Summary:	Static libraries for ORBit
-Summary(pl.UTF-8):   Biblioteki statyczne dla ORBit
+Summary(pl.UTF-8):	Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Provides:	linc-static = 1.1.1
