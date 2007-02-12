@@ -1,6 +1,6 @@
 Summary:	High-performance CORBA Object Request Broker
-Summary(fr):	Requ鑤e d'Objects CORBA
-Summary(pl):	Wysoko wydajny CORBA Object Request Broker
+Summary(fr.UTF-8):   Requ猫te d'Objects CORBA
+Summary(pl.UTF-8):   Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.14.5
 Release:	1
@@ -38,33 +38,33 @@ locations of the two programs. CORBA is an architecture that enables
 communication between program objects, regardless of the programming
 language they're written in or the operating system they run on.
 
-%description -l fr
+%description -l fr.UTF-8
 ORBit est un ORB CORBA avec support pour le language C. Il permet a
-des programmes d'envoyer des requ鑤es et recevoir de r閜onses d'autres
-programmes, ind閜endement de l'endroit ou sont les deux programmes.
+des programmes d'envoyer des requ猫tes et recevoir de r茅ponses d'autres
+programmes, ind茅pendement de l'endroit ou sont les deux programmes.
 
-%description -l pl
-ORBit to wysokiej wydajno禼i CORBA (Common Object Request Broker
-Architecture) ORB (object request broker). Pozwala na wysy砤nie pr蠖b
-i otrzymywanie odpowiedzi od innych program體 bez znajomo禼i po硂縠nia
-tych dw骳h program體.
+%description -l pl.UTF-8
+ORBit to wysokiej wydajno艣ci CORBA (Common Object Request Broker
+Architecture) ORB (object request broker). Pozwala na wysy艂anie pr贸艣b
+i otrzymywanie odpowiedzi od innych program贸w bez znajomo艣ci po艂o偶enia
+tych dw贸ch program贸w.
 
 %package apidocs
 Summary:	ORBit API documentation
-Summary(pl):	Dokumentacja API ORBit
+Summary(pl.UTF-8):   Dokumentacja API ORBit
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 ORBit API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API ORBit.
 
 %package devel
 Summary:	Header files, and utilities for ORBit
-Summary(fr):	Librairies statiques et fichiers ent阾e pour ORBit
-Summary(pl):	Pliki nag丑wkowe i u縴tki dla ORBit
+Summary(fr.UTF-8):   Librairies statiques et fichiers ent锚te pour ORBit
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe i u偶ytki dla ORBit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.12.3
@@ -82,21 +82,21 @@ other programs, regardless of the locations of the two programs.
 This package includes the header files and utilities neecessary to
 write programs that use CORBA technology.
 
-%description devel -l fr
-Librairies statiques et fichiers ent阾e requis pour le development ou
+%description devel -l fr.UTF-8
+Librairies statiques et fichiers ent锚te requis pour le development ou
 la compilation de programmes utilisant ORBit.
 
-%description devel -l pl
-ORBit to wysokiej wydajno禼i CORBA ORB ze wsparciem dla j陑yka C.
-Pozwala na wysy砤nie pr蠖b i otrzymywanie odpowiedzi od innych
-program體 bez znajomo禼i po硂縠nia tych dw骳h program體.
+%description devel -l pl.UTF-8
+ORBit to wysokiej wydajno艣ci CORBA ORB ze wsparciem dla j臋zyka C.
+Pozwala na wysy艂anie pr贸艣b i otrzymywanie odpowiedzi od innych
+program贸w bez znajomo艣ci po艂o偶enia tych dw贸ch program贸w.
 
-Ten pakiet zawiera pliki nag丑wkowe oraz u縴tki potrzebne do pisania
-program體 u縴waj眂ych technologi CORBA.
+Ten pakiet zawiera pliki nag艂贸wkowe oraz u偶ytki potrzebne do pisania
+program贸w u偶ywaj膮cych technologi CORBA.
 
 %package static
 Summary:	Static libraries for ORBit
-Summary(pl):	Biblioteki statyczne dla ORBit
+Summary(pl.UTF-8):   Biblioteki statyczne dla ORBit
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Provides:	linc-static = 1.1.1
@@ -110,13 +110,13 @@ programs, regardless of the locations of the two programs.
 This package includes static libraries neecessary to write programs
 statically linked that use CORBA technology.
 
-%description static -l pl
-ORBit to wysokiej wydajno禼i CORBA ORB ze wsparciem dla j陑yka C.
-Pozwala na wysy砤nie pr蠖b i otrzymywanie odpowiedzi od innych
-program體 bez znajomo禼i po硂縠nia tych dw骳h program體.
+%description static -l pl.UTF-8
+ORBit to wysokiej wydajno艣ci CORBA ORB ze wsparciem dla j臋zyka C.
+Pozwala na wysy艂anie pr贸艣b i otrzymywanie odpowiedzi od innych
+program贸w bez znajomo艣ci po艂o偶enia tych dw贸ch program贸w.
 
-Ten pakiet zawiera biblioteki statyczne potrzebne do pisania program體
-skonsolidowanych statycznie u縴waj眂ych technologii CORBA.
+Ten pakiet zawiera biblioteki statyczne potrzebne do pisania program贸w
+skonsolidowanych statycznie u偶ywaj膮cych technologii CORBA.
 
 %prep
 %setup -q
