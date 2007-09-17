@@ -2,27 +2,27 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.14.8
+Version:	2.14.9
 Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	661c7afc457d44c2f9dcf1811dd2150d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	c7e7080ef27aca22f26ac21fcb5613a5
 Patch0:		%{name}-pthread.patch
 URL:		http://www.gnome.org/projects/ORBit2/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	glib2-devel >= 1:2.12.9
+BuildRequires:	glib2-devel >= 1:2.14.1
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	indent
-BuildRequires:	libIDL-devel >= 0.8.7
+BuildRequires:	libIDL-devel >= 0.8.9
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.14.0
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	glib2 >= 1:2.12.9
-Requires:	libIDL >= 0.8.7
+Requires:	glib2 >= 1:2.14.1
+Requires:	libIDL >= 0.8.9
 Provides:	linc = 1.1.1
 Obsoletes:	ORBit2-automake
 Obsoletes:	libORBit2_0
@@ -67,9 +67,9 @@ Summary(fr.UTF-8):	Librairies statiques et fichiers entête pour ORBit
 Summary(pl.UTF-8):	Pliki nagłówkowe i użytki dla ORBit
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	glib2-devel >= 1:2.12.9
+Requires:	glib2-devel >= 1:2.14.1
 Requires:	indent
-Requires:	libIDL-devel >= 0.8.7
+Requires:	libIDL-devel >= 0.8.9
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
 Obsoletes:	linc-devel
