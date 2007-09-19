@@ -157,10 +157,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/linc-cleanup-sockets
 %attr(755,root,root) %{_bindir}/orbit-idl-2
 %attr(755,root,root) %{_bindir}/typelib-dump
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libORBit*-2.so.*.*.*
 %dir %{_libdir}/orbit-2.0
 %attr(755,root,root) %{_libdir}/orbit-2.0/*.so*
-%{_datadir}/idl/orbit-*
+%{_datadir}/idl/orbit-2.0
 
 %files apidocs
 %defattr(644,root,root,755)
@@ -170,12 +170,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/orbit2-config
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libORBit*-2.so
+%{_libdir}/libORBit*-2.la
 %{_libdir}/libname-server-2.a
-%{_aclocaldir}/*
-%{_includedir}/orbit-*
-%{_pkgconfigdir}/*.pc
+%{_includedir}/orbit-2.0
+%{_pkgconfigdir}/ORBit*-2.0.pc
+%{_aclocaldir}/ORBit2.m4
 
 %files static
 %defattr(644,root,root,755)
