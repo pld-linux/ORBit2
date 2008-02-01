@@ -2,27 +2,27 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.14.10
+Version:	2.14.12
 Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	180f486f07d6db84aca0f71f68e54618
+# Source0-md5:	6f4bf7d803d442e9d093a0daa203d506
 Patch0:		%{name}-pthread.patch
 URL:		http://www.gnome.org/projects/ORBit2/
 BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.14.1
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	indent
-BuildRequires:	libIDL-devel >= 0.8.9
+BuildRequires:	libIDL-devel >= 0.8.10
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.14.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	glib2 >= 1:2.14.1
-Requires:	libIDL >= 0.8.9
+Requires:	libIDL >= 0.8.10
 Provides:	linc = 1.1.1
 Obsoletes:	ORBit2-automake
 Obsoletes:	libORBit2_0
@@ -69,7 +69,7 @@ Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	glib2-devel >= 1:2.14.1
 Requires:	indent
-Requires:	libIDL-devel >= 0.8.9
+Requires:	libIDL-devel >= 0.8.10
 Provides:	linc-devel = 1.1.1
 Obsoletes:	libORBit2_0-devel
 Obsoletes:	linc-devel
@@ -157,9 +157,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/linc-cleanup-sockets
 %attr(755,root,root) %{_bindir}/orbit-idl-2
 %attr(755,root,root) %{_bindir}/typelib-dump
-%attr(755,root,root) %{_libdir}/libORBit*-2.so.*.*.*
+%attr(755,root,root) %{_libdir}/libORBit-2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libORBit-2.so.0
+%attr(755,root,root) %{_libdir}/libORBit-imodule-2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libORBit-imodule-2.so.0
+%attr(755,root,root) %{_libdir}/libORBitCosNaming-2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libORBitCosNaming-2.so.0
 %dir %{_libdir}/orbit-2.0
-%attr(755,root,root) %{_libdir}/orbit-2.0/*.so*
+%attr(755,root,root) %{_libdir}/orbit-2.0/Everything_module.so
 %{_datadir}/idl/orbit-2.0
 
 %files apidocs
@@ -170,11 +175,18 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/orbit2-config
-%attr(755,root,root) %{_libdir}/libORBit*-2.so
-%{_libdir}/libORBit*-2.la
+%attr(755,root,root) %{_libdir}/libORBit-2.so
+%attr(755,root,root) %{_libdir}/libORBit-imodule-2.so
+%attr(755,root,root) %{_libdir}/libORBitCosNaming-2.so
+%{_libdir}/libORBit-2.la
+%{_libdir}/libORBit-imodule-2.la
+%{_libdir}/libORBitCosNaming-2.la
 %{_libdir}/libname-server-2.a
 %{_includedir}/orbit-2.0
-%{_pkgconfigdir}/ORBit*-2.0.pc
+%{_pkgconfigdir}/ORBit-2.0.pc
+%{_pkgconfigdir}/ORBit-CosNaming-2.0.pc
+%{_pkgconfigdir}/ORBit-idl-2.0.pc
+%{_pkgconfigdir}/ORBit-imodule-2.0.pc
 %{_aclocaldir}/ORBit2.m4
 
 %files static
