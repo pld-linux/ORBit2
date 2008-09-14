@@ -1,3 +1,8 @@
+#
+# Conditional build:
+%bcond_without	apidocs		# disable gtk-doc
+%bcond_without	static_libs	# don't build static library
+#
 Summary:	High-performance CORBA Object Request Broker
 Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
@@ -15,7 +20,7 @@ BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.14.1
-BuildRequires:	gtk-doc >= 1.8
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.10
 BuildRequires:	libtool
@@ -122,8 +127,13 @@ skonsolidowanych statycznie używających technologii CORBA.
 %setup -q
 %patch0 -p1
 
+%if !%{with apidocs}
+echo 'EXTRA_DIST=' > gtk-doc.make
+echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
+%endif
+
 %build
-%{__gtkdocize}
+%{?with_apidocs:%{__gtkdocize}}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -131,7 +141,8 @@ skonsolidowanych statycznie używających technologii CORBA.
 %{__automake}
 %configure \
 	--with-html-dir=%{_gtkdocdir} \
-	--enable-gtk-doc
+	%{!?with_static_libs:--disable-static} \
+	%{?with_apidocs:--enable-gtk-doc}
 %{__make} -j1
 
 %install
@@ -166,9 +177,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/orbit-2.0/Everything_module.so
 %{_datadir}/idl/orbit-2.0
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/%{name}
+%endif
 
 %files devel
 %defattr(644,root,root,755)
@@ -188,8 +201,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/ORBit-imodule-2.0.pc
 %{_aclocaldir}/ORBit2.m4
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libORBit-2.a
 %{_libdir}/libORBit-imodule-2.a
 %{_libdir}/libORBitCosNaming-2.a
+%endif
