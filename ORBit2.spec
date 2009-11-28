@@ -18,6 +18,7 @@ Patch0:		%{name}-pthread.patch
 URL:		http://www.gnome.org/projects/ORBit2/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	flex
 BuildRequires:	glib2-devel >= 1:2.14.1
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
