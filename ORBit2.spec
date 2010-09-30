@@ -7,13 +7,13 @@ Summary:	High-performance CORBA Object Request Broker
 Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
-Version:	2.14.18
+Version:	2.14.19
 Release:	1
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	3e80596171b1ea652707219c7144ff53
+# Source0-md5:	7082d317a9573ab338302243082d10d1
 Patch0:		%{name}-pthread.patch
 URL:		http://projects.gnome.org/ORBit2/
 BuildRequires:	autoconf >= 2.54
