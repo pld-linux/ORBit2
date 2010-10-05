@@ -25,7 +25,7 @@ BuildRequires:	glib2-devel >= 1:2.14.1
 BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.10
 BuildRequires:	libtool
-BuildRequires:	pkgconfig >= 1:0.14.0
+BuildRequires:	pkgconfig >= 1:0.18
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	glib2 >= 1:2.14.1
 Requires:	libIDL >= 0.8.10
