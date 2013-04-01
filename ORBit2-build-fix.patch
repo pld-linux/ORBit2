@@ -1,0 +1,37 @@
+diff -ur ORBit2-2.14.19.orig/configure.in ORBit2-2.14.19/configure.in
+--- ORBit2-2.14.19.orig/configure.in	2010-07-01 13:57:01.000000000 +0000
++++ ORBit2-2.14.19/configure.in	2013-04-01 20:41:55.902571944 +0000
+@@ -262,7 +262,7 @@
+ 
+ if test "$enable_maintainer_mode" = "yes"; then
+ 	DISABLE_DEPRECATED_CFLAGS=" \
+-		-DG_DISABLE_DEPRECATED -DG_DISABLE_SINGLE_INCLUDES"
++		-DG_DISABLE_SINGLE_INCLUDES"
+ 	AC_SUBST(DISABLE_DEPRECATED_CFLAGS)
+ fi
+ 
+diff -ur ORBit2-2.14.19.orig/linc2/src/Makefile.am ORBit2-2.14.19/linc2/src/Makefile.am
+--- ORBit2-2.14.19.orig/linc2/src/Makefile.am	2010-02-09 12:05:35.000000000 +0000
++++ ORBit2-2.14.19/linc2/src/Makefile.am	2013-04-01 20:42:37.883571886 +0000
+@@ -12,8 +12,7 @@
+ 	-I$(top_builddir)/linc2/include  \
+ 	-I$(top_srcdir)/linc2/include    \
+ 	$(LINC_CFLAGS)             \
+-	$(WARN_CFLAGS)             \
+-	-DG_DISABLE_DEPRECATED
++	$(WARN_CFLAGS)             
+ 
+ if OS_WIN32
+ else
+diff -ur ORBit2-2.14.19.orig/linc2/src/Makefile.in ORBit2-2.14.19/linc2/src/Makefile.in
+--- ORBit2-2.14.19.orig/linc2/src/Makefile.in	2010-09-28 09:39:39.000000000 +0000
++++ ORBit2-2.14.19/linc2/src/Makefile.in	2013-04-01 20:42:51.310571646 +0000
+@@ -244,7 +244,7 @@
+ #	-I$(top_srcdir)/include    
+ INCLUDES = -I$(top_builddir)/linc2/include \
+ 	-I$(top_srcdir)/linc2/include $(LINC_CFLAGS) $(WARN_CFLAGS) \
+-	-DG_DISABLE_DEPRECATED $(am__append_1)
++	$(am__append_1)
+ liblinc_la_SOURCES = \
+ 	linc.c			\
+ 	linc-connection.c	\
