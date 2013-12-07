@@ -23,15 +23,14 @@ diff -ur ORBit2-2.14.19.orig/linc2/src/Makefile.am ORBit2-2.14.19/linc2/src/Make
  
  if OS_WIN32
  else
-diff -ur ORBit2-2.14.19.orig/linc2/src/Makefile.in ORBit2-2.14.19/linc2/src/Makefile.in
---- ORBit2-2.14.19.orig/linc2/src/Makefile.in	2010-09-28 09:39:39.000000000 +0000
-+++ ORBit2-2.14.19/linc2/src/Makefile.in	2013-04-01 20:42:51.310571646 +0000
-@@ -244,7 +244,7 @@
- #	-I$(top_srcdir)/include    
- INCLUDES = -I$(top_builddir)/linc2/include \
- 	-I$(top_srcdir)/linc2/include $(LINC_CFLAGS) $(WARN_CFLAGS) \
--	-DG_DISABLE_DEPRECATED $(am__append_1)
-+	$(am__append_1)
- liblinc_la_SOURCES = \
- 	linc.c			\
- 	linc-connection.c	\
+--- ORBit2-2.14.19/test/everything/Makefile.am~	2013-12-07 10:59:17.000000000 +0100
++++ ORBit2-2.14.19/test/everything/Makefile.am	2013-12-07 11:00:27.439835598 +0100
+@@ -78,7 +78,7 @@
+ BUILT_SOURCES = ${EVERYTHING_BUILT} everything-imodule.c
+ CLEANFILES = ${BUILT_SOURCES} iorfile
+ 
+-TESTS = $(srcdir)/test.sh
++TESTS = test.sh
+ 
+ EXTRA_DIST = $(IDL_FILES) test.sh $(included_src)
+ 
