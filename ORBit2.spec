@@ -2,13 +2,13 @@
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
 %bcond_without	static_libs	# don't build static library
-#
+
 Summary:	High-performance CORBA Object Request Broker
 Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.14.19
-Release:	4
+Release:	5
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
@@ -61,6 +61,9 @@ Summary:	ORBit API documentation
 Summary(pl.UTF-8):	Dokumentacja API ORBit
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 ORBit API documentation.
