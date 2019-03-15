@@ -34,3 +34,15 @@ diff -ur ORBit2-2.14.19.orig/linc2/src/Makefile.am ORBit2-2.14.19/linc2/src/Make
  
  EXTRA_DIST = $(IDL_FILES) test.sh $(included_src)
  
+diff -urN ORBit2-2.14.19.orig/src/services/name/Makefile.am ORBit2-2.14.19/src/services/name/Makefile.am
+--- ORBit2-2.14.19.orig/src/services/name/Makefile.am	2019-03-15 10:25:22.576738108 +0100
++++ ORBit2-2.14.19/src/services/name/Makefile.am	2019-03-15 10:27:17.775898401 +0100
+@@ -68,7 +68,7 @@
+ 
+ orbit_name_server_2_SOURCES = boot.c
+ orbit_name_server_2_LDFLAGS = $(FLAGS)
+-orbit_name_server_2_DEPENDENCIES = $(DEPS) CosNaming.h
++orbit_name_server_2_DEPENDENCIES = $(DEPS) CosNaming.h libname-server-2.a
+ orbit_name_server_2_LDADD = libname-server-2.a $(LDADDS)
+ 
+ $(libname_server_2_a_OBJECTS) $(name_client_2_OBJECTS) $(orbit_name_server_2_OBJECTS) : CosNaming.h
