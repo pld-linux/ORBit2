@@ -8,7 +8,7 @@ Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.14.19
-Release:	8
+Release:	9
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
@@ -198,6 +198,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libORBit-2.so
 %attr(755,root,root) %{_libdir}/libORBit-imodule-2.so
 %attr(755,root,root) %{_libdir}/libORBitCosNaming-2.so
+# static-only library
+%{_libdir}/libname-server-2.a
 %{_includedir}/orbit-2.0
 %{_pkgconfigdir}/ORBit-2.0.pc
 %{_pkgconfigdir}/ORBit-CosNaming-2.0.pc
@@ -211,5 +213,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libORBit-2.a
 %{_libdir}/libORBit-imodule-2.a
 %{_libdir}/libORBitCosNaming-2.a
-%{_libdir}/libname-server-2.a
 %endif
