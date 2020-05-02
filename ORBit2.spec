@@ -160,7 +160,10 @@ rm -rf $RPM_BUILD_ROOT
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la
 # no static module - shut up check-files
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.{la,a}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.la
+%if %{with static_libs}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/Everything_module.a
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
