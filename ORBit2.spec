@@ -61,9 +61,7 @@ Summary:	ORBit API documentation
 Summary(pl.UTF-8):	Dokumentacja API ORBit
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 ORBit API documentation.
