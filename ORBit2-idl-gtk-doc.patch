@@ -1,0 +1,23 @@
+--- ORBit2-2.14.19/src/idl-compiler/orbit-idl-c-headers.c.orig	2010-02-09 13:05:35.000000000 +0100
++++ ORBit2-2.14.19/src/idl-compiler/orbit-idl-c-headers.c	2021-03-12 20:48:55.042479965 +0100
+@@ -634,7 +634,7 @@
+ 
+   ctmp = orbit_cbe_get_typespec_str(tree);
+   fprintf(ci->fh,
+-	  "typedef struct { CORBA_unsigned_short _digits; CORBA_short _scale; CORBA_char _value[%d]; } %s;\n",
++	  "typedef struct {\n  CORBA_unsigned_short _digits;\n  CORBA_short _scale;\n  CORBA_char _value[%d];\n} %s;\n",
+ 	  (int) (IDL_INTEGER(IDL_TYPE_FIXED(tree).positive_int_const).value + 2)/2,
+ 	  ctmp);
+   g_free(ctmp);
+@@ -714,9 +714,9 @@
+ 
+       fprintf(ci->fh, "#if !defined(_%s_defined)\n#define _%s_defined 1\n",
+ 	      fullname, fullname);
+-      fprintf(ci->fh, "typedef struct { CORBA_unsigned_long _maximum, _length; ");
++      fprintf(ci->fh, "typedef struct {\n  CORBA_unsigned_long _maximum, _length;\n  ");
+       orbit_cbe_write_typespec(ci->fh, IDL_TYPE_SEQUENCE(tree).simple_type_spec);
+-      fprintf(ci->fh, "* _buffer; CORBA_boolean _release; } ");
++      fprintf(ci->fh, "* _buffer;\n  CORBA_boolean _release;\n} ");
+       orbit_cbe_write_typespec(ci->fh, tree);
+       fprintf(ci->fh, ";\n#endif\n");
+       ch_type_alloc_and_tc(tree, rinfo, ci, TRUE);

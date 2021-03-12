@@ -1,22 +1,23 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# disable gtk-doc
-%bcond_without	static_libs	# don't build static library
+%bcond_without	apidocs		# gtk-doc based API documentation
+%bcond_without	static_libs	# static libraries
 
 Summary:	High-performance CORBA Object Request Broker
 Summary(fr.UTF-8):	Requète d'Objects CORBA
 Summary(pl.UTF-8):	Wysoko wydajny CORBA Object Request Broker
 Name:		ORBit2
 Version:	2.14.19
-Release:	9
+Release:	10
 Epoch:		1
 License:	GPL v2+/LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
+Source0:	https://download.gnome.org/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
 # Source0-md5:	7082d317a9573ab338302243082d10d1
 Patch0:		%{name}-pthread.patch
 Patch1:		%{name}-build-fix.patch
-URL:		https://projects-old.gnome.org/ORBit2/
+Patch2:		%{name}-idl-gtk-doc.patch
+URL:		https://developer.gnome.org/ORBit2/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
@@ -27,11 +28,12 @@ BuildRequires:	indent
 BuildRequires:	libIDL-devel >= 0.8.10
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.18
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	glib2 >= 1:2.14.1
 Requires:	libIDL >= 0.8.10
 Provides:	linc = 1.1.1
-Obsoletes:	ORBit2-automake
+Obsoletes:	ORBit2-automake < 1:2.12.5
 Obsoletes:	libORBit2_0
 Obsoletes:	linc
 Conflicts:	libbonobo < 2.3.2
@@ -130,8 +132,9 @@ skonsolidowanych statycznie używających technologii CORBA.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
-%if !%{with apidocs}
+%if %{without apidocs}
 echo 'EXTRA_DIST=' > gtk-doc.make
 echo 'AC_DEFUN([GTK_DOC_CHECK],[])' >> acinclude.m4
 %endif
