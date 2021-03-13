@@ -14,7 +14,6 @@ License:	GPL v2+/LGPL v2+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/ORBit2/2.14/%{name}-%{version}.tar.bz2
 # Source0-md5:	7082d317a9573ab338302243082d10d1
-Patch0:		%{name}-pthread.patch
 Patch1:		%{name}-build-fix.patch
 Patch2:		%{name}-idl-gtk-doc.patch
 URL:		https://developer.gnome.org/ORBit2/
@@ -130,7 +129,6 @@ skonsolidowanych statycznie używających technologii CORBA.
 
 %prep
 %setup -q
-%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 
