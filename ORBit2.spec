@@ -129,8 +129,8 @@ skonsolidowanych statycznie używających technologii CORBA.
 
 %prep
 %setup -q
-%patch1 -p1
-%patch2 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %if %{without apidocs}
 echo 'EXTRA_DIST=' > gtk-doc.make
